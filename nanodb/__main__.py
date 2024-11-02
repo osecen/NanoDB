@@ -10,6 +10,8 @@ from .nanodb import NanoDB, DistanceMetrics
 from .server import Server
 from .utils import LogFormatter
 
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 parser.add_argument("--path", type=str, default=None, help="path to load or create the database")
@@ -86,7 +88,7 @@ while True:
 
     logging.info(f"searching for '{query}' with k={args.k}")
 
-
+# I see the print statements on the terminal but not the logging statements?
     if os.path.isdir(query):
         logging.info(f"scanning {query}")
         db.scan(query)
