@@ -84,11 +84,12 @@ while True:
     if not query:
         continue
         
-    if os.path.isfile(query) or os.path.isdir(query):
+    if os.path.isdir(query):
         db.scan(query)
     elif query.lower() == 'save':
         db.save()
-    else: 
+    else:
+        logging.info(f"searching for '{query}' with k={args.k}")
         indexes, distances = db.search(query, k=args.k)
     
         print(' ')
