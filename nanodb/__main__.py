@@ -83,10 +83,15 @@ while True:
     
     if not query:
         continue
-        
+
+    logging.info(f"searching for '{query}' with k={args.k}")
+
+
     if os.path.isdir(query):
+        logging.info(f"scanning {query}")
         db.scan(query)
     elif query.lower() == 'save':
+        logging.info(f"saving database to '{db.path}'")
         db.save()
     else:
         logging.info(f"searching for '{query}' with k={args.k}")
