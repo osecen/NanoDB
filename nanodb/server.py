@@ -59,9 +59,20 @@ class Server(threading.Thread):
         
     def create_ui(self):
         css = """
-            #stats_box {font-family: monospace; font-size: 65%; height: 162px;} 
+            #stats_box {
+                font-family: monospace;
+                font-size: 65%;
+                height: 162px;
+                background-color: #333; /* Dark background color */
+                color: #ffffff; /* White text color for visibility */
+            }
             footer {visibility: hidden} 
             body {overflow: hidden;}
+            .caption-label.svelte-g4rw9 {
+                background: rgba(0, 0, 0, 0.4) !important;
+                padding: 2px 6px !important;
+                border-radius: 3px !important;
+            }
         """
         # https://stackoverflow.com/questions/66738872/why-doesnt-the-scrollbar-color-property-work-directly-on-the-body
         # * {scrollbar-color: darkgray lightgray; scrollbar-width: thin;}
