@@ -14,6 +14,7 @@ import gradio as gr
 
 from fastapi.staticfiles import StaticFiles
 
+logging.basicConfig(level=logging.DEBUG)
 
 class Server(threading.Thread):
     def __init__(self, db, host='0.0.0.0', port=7860):
